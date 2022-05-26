@@ -1,0 +1,78 @@
+﻿label {
+    font-size: 0.8em;
+    text-align: left;
+    clear: both;
+    margin-right: 5px;
+}
+
+p {
+    font-size: 0.9em;
+}
+
+.stretch-height {
+    height: inherit;
+}
+
+.center {
+    text-align: center;
+}
+
+.border1 {
+    border: solid;
+    border-color: #72C5AC;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+    height: inherit;
+}
+
+.border2 {
+    border: solid;
+    border-color: #72C5AC;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+    height: inherit;
+}
+
+.border3 {
+    border: solid;
+    border-color: #72C5AC;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+    height: inherit;
+}
+
+.border4 {
+    border: solid;
+    border-color: #72C5AC;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 25px;
+    padding: 10px;
+    height: inherit;
+}
+
+.background1 {
+    border-width: 0;
+    background-image: linear-gradient(to bottom right, #72C5AC, #CBE398);
+}
+
+.background2 {
+    border-width: 0;
+    background-image: linear-gradient(to bottom right, #72C5AC, #595959);
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
