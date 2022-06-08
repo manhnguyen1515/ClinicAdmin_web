@@ -4,22 +4,28 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Danh sách lịch hẹn</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Tạo mới</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.AppointmentDay)
+                Ngày khám
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                Trạng thái
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Patient)
+                Họ tên
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Địa chỉ
             </th>
             <th></th>
         </tr>
@@ -34,12 +40,18 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Patient.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patient.Phone)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Patient.Address)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Chỉnh sửa</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
             </td>
         </tr>
 }

@@ -22,7 +22,7 @@ namespace ClinicAdmin_web.Middlewares
             {
                 context.Response.Redirect("/Account/Login");
             }
-           
+            
             // Move forward into the pipeline
             await _next(context);
         }

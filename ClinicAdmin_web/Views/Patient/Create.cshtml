@@ -1,56 +1,56 @@
 ﻿@model ClinicAdmin_web.Models.Patient
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tạo mới bệnh nhân";
 }
 
-<h1>Create</h1>
+<h1>Tạo mới</h1>
 
-<h4>Patient</h4>
+<h4>Bệnh nhân</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FullName" class="control-label"></label>
+                <label asp-for="FullName" class="control-label">Họ tên</label>
                 <input asp-for="FullName" class="form-control" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
+                <label asp-for="Address" class="control-label">Địa chỉ</label>
                 <input asp-for="Address" class="form-control" />
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
+                <label asp-for="Phone" class="control-label">Số điện thoại</label>
                 <input asp-for="Phone" class="form-control" />
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
+                <label asp-for="Weight" class="control-label">Cân nặng</label>
                 <input asp-for="Weight" class="form-control" />
                 <span asp-validation-for="Weight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
+                <label asp-for="Age" class="control-label">Tuổi</label>
                 <input asp-for="Age" class="form-control" />
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
+                <label asp-for="Gender" class="control-label">Giới tính</label>
                 <input asp-for="Gender" class="form-control" />
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Tạo mới" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Về danh sách</a>
 </div>
 
 @section Scripts {

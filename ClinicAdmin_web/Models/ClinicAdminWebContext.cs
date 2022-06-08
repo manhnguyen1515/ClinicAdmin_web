@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using ClinicAdmin_web.ViewModels;
 
 #nullable disable
 
@@ -19,13 +18,13 @@ namespace ClinicAdmin_web.Models
         }
 
         public virtual DbSet<Appointment> Appointments { get; set; }
-        public virtual DbSet<DayReport> DayReports { get; set; }
         public virtual DbSet<Invoice> Invoices { get; set; }
         public virtual DbSet<Medicine> Medicines { get; set; }
         public virtual DbSet<Patient> Patients { get; set; }
         public virtual DbSet<Prescription> Prescriptions { get; set; }
         public virtual DbSet<PrescriptionMedicine> PrescriptionMedicines { get; set; }
         public virtual DbSet<Regulation> Regulations { get; set; }
+        public virtual DbSet<Report> Reports { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<UnitMedicine> UnitMedicines { get; set; }
         public virtual DbSet<UsageMedicine> UsageMedicines { get; set; }
@@ -36,7 +35,7 @@ namespace ClinicAdmin_web.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-JINADF1\\MANH;Initial Catalog=ClinicAdminWeb;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-JINADF1\\SQLEXPRESS;Initial Catalog=ClinicAdminWeb;Integrated Security=True");
             }
         }
 
@@ -57,16 +56,6 @@ namespace ClinicAdmin_web.Models
                     .HasForeignKey(d => d.PatientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("Appointment_fk0");
-            });
-
-            modelBuilder.Entity<DayReport>(entity =>
-            {
-                entity.ToTable("DayReport");
-
-                entity.Property(e => e.DayReport1)
-                    .HasColumnType("date")
-                    .HasColumnName("DayReport")
-                    .HasDefaultValueSql("(getdate())");
             });
 
             modelBuilder.Entity<Invoice>(entity =>
@@ -177,6 +166,22 @@ namespace ClinicAdmin_web.Models
                 entity.Property(e => e.Value).HasMaxLength(255);
             });
 
+            modelBuilder.Entity<Report>(entity =>
+            {
+                entity.ToTable("Report");
+
+                entity.Property(e => e.CreatedAt)
+                    .HasColumnType("date")
+                    .HasColumnName("Created_at")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Descript).HasColumnType("text");
+
+                entity.Property(e => e.Purpose).HasColumnType("text");
+
+                entity.Property(e => e.ReportPerson).HasMaxLength(255);
+            });
+
             modelBuilder.Entity<Role>(entity =>
             {
                 entity.ToTable("Role");
@@ -208,7 +213,7 @@ namespace ClinicAdmin_web.Models
             {
                 entity.ToTable("User");
 
-                entity.HasIndex(e => e.Username, "UQ__User__536C85E4B0321201")
+                entity.HasIndex(e => e.Username, "UQ__User__536C85E49EE496F2")
                     .IsUnique();
 
                 entity.Property(e => e.Address)
@@ -245,7 +250,5 @@ namespace ClinicAdmin_web.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-        public DbSet<ClinicAdmin_web.ViewModels.LoginViewModel> LoginViewModel { get; set; }
     }
 }

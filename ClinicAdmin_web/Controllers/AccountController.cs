@@ -84,7 +84,7 @@ namespace ClinicAdmin_web.Controllers
         [HttpPost]
         public async Task<IActionResult> Logout()
         {
-            //await HttpContext.SignOutAsync();
+            await HttpContext.SignOutAsync();
             HttpContext.Session.Clear();
             return RedirectToAction("Login", "Account");
         }

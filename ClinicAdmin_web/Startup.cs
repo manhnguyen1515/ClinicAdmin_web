@@ -44,6 +44,7 @@ namespace ClinicAdmin_web
             services.AddSession();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,18 +65,19 @@ namespace ClinicAdmin_web
 
             app.UseSession();
 
-            //app.UseMiddleware<AuthMiddleware>();
+            
             app.UseRouting();
 
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseMiddleware<AuthMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Login}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
 

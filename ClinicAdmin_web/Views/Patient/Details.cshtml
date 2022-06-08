@@ -1,47 +1,47 @@
 ﻿@model ClinicAdmin_web.Models.Patient
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết bệnh nhân";
 }
 
-<h1>Details</h1>
+<h1>Chi tiết</h1>
 
 <div>
-    <h4>Patient</h4>
+    <h4>Bệnh nhân</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullName)
+            Họ tên
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.FullName)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
+            Địa chỉ
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Address)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
+            Số điện thoại
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Phone)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Weight)
+            Cân nặng
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Weight)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
+            Tuổi
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Age)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
+            Giới tính
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Gender)
@@ -49,6 +49,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Chỉnh sửa</a> |
+    <a asp-action="Index">Về danh sách</a>
 </div>
